@@ -1,13 +1,18 @@
-version: "3.8"
-
 services:
   app:
+    depends_on:
+      db:
+        condition: service_healthy
+        restart: true
     build:
       context: .
-      dockerfile: Dockerfile
-    command: sleep infinity
+      # dockerfile: Dockerfile
+    command: npm run dev
+    container_name: library-app
+    ports:
+      - "3000:3000"
     volumes:
-      - ..:/workspace:cached
+      - ..:/app
     networks:
       - app_network
 
@@ -15,12 +20,19 @@ services:
     image: postgres:latest
     container_name: db
     restart: unless-stopped
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    ports:
+      - "5432:5432"
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
       POSTGRES_DB: library
     volumes:
-      - db_data:/var/lib/postgresql/data
+      - db_data_library:/var/lib/postgresql/data
     networks:
       - app_network
 
@@ -28,4 +40,4 @@ networks:
   app_network:
 
 volumes:
-  db_data:
+  db_data_library:

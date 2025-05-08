@@ -2,7 +2,8 @@
 FROM node:lts-alpine3.21
 
 # Set the working directory
-WORKDIR /workspace
+RUN mkdir /app
+WORKDIR /app
 
 # Install zsh, oh-my-zsh and other utilities
 # RUN apt-get update && apt-get install -y zsh git wget

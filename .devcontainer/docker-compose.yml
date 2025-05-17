@@ -10,8 +10,8 @@ services:
     command: npm run dev
     container_name: library-app
     ports:
-      - "3000:3000"
-      - "5555:5555"
+      - "0.0.0.0:3000:3000"
+      - "0.0.0.0:5555:5555"
     volumes:
       - ..:/app
     networks:

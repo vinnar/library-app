@@ -11,6 +11,8 @@ export default function HomeClient({ user }: { user: { name?: string | null }} )
         const root = document.documentElement;
         if (darkMode) {
             root.classList.add('dark');
+        } else {
+            root.classList.remove('dark');
         }
     }, [darkMode]);
 

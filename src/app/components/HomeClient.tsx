@@ -35,16 +35,16 @@ export default function HomeClient({ user }: { user: { name?: string | null }} )
                     <thead>
                         <tr>
                             <th className="border border-black px-4 py-2"> 
-                                <Link href="/books" className="text-blue-600 underline hover:text-blue-800"> Books </Link> 
+                                <Link href="/dashboard/books" className="text-blue-600 underline hover:text-blue-800"> Books </Link> 
                             </th>
                             <th className="border border-black px-4 py-2"> 
-                                <Link href="/authors" className="text-blue-600 underline hover:text-blue-800"> Authors </Link> 
+                                <Link href="/dashboard/authors" className="text-blue-600 underline hover:text-blue-800"> Authors </Link> 
                             </th>
                             <th className="border border-black px-4 py-2"> 
-                                <Link href="/borrowers" className="text-blue-600 underline hover:text-blue-800"> Borrowers </Link> 
+                                <Link href="/dashboard/borrowers" className="text-blue-600 underline hover:text-blue-800"> Borrowers </Link> 
                             </th>
                             <th className="border border-black px-4 py-2"> 
-                                <Link href="/borrow" className="text-blue-600 underline hover:text-blue-800"> Borrow </Link> 
+                                <Link href="/dashboard/borrow" className="text-blue-600 underline hover:text-blue-800"> Borrow </Link> 
                             </th>
                         </tr>
                     </thead>

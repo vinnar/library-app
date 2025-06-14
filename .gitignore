@@ -43,3 +43,7 @@ next-env.d.ts
 
 # tmp folder
 tmp/*
+
+# python
+venv/
+.venv/

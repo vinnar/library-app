@@ -30,5 +30,9 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
     - `npx prisma generate`
     - `npx prisma db push` # Above 2 commands to setup the db on first startup
 
+6. Open Prisma Studio to review DB schema/data
+    - `npx prisma studio` # execute from within the Docker container to open Prisma Studio <br>
+        Open [http://localhost:5555](http://localhost:5555) to access the Prisma Studio
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+7. Open Library App UI
+    - Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.

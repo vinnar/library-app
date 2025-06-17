@@ -26,8 +26,7 @@ model Book {
   id           Int           @id @default(autoincrement())
   isbn         String        @unique
   name         String
-  authorId     Int
-  author       Author        @relation(fields: [authorId], references: [id])
+  bookAuthor    BookAuthor[]
   publishedAt  DateTime
   createdAt    DateTime      @default(now())
   updatedAt    DateTime      @updatedAt
@@ -37,11 +36,20 @@ model Book {
 model Author {
   id        Int      @id @default(autoincrement())
   name      String
-  books     Book[]
+  bookAuthor    BookAuthor[]
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
 
+model BookAuthor {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  bookId    Int
+  book      Book    @relation(fields: [bookId], references: [id])
+  authorId  Int
+  author    Author  @relation(fields: [authorId], references: [id])
+}
 model Transaction {
   id            Int             @id @default(autoincrement())
   type          TransactionType
